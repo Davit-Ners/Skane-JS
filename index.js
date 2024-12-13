@@ -190,6 +190,7 @@ function mouvDeplacement(i0, i1) {
                 tt[pos[0]][pos[1]].passage = i;
                 tt[nextPos[0]][nextPos[1]].passageTemp = i;
                 console.log(pos[0], pos[1]);
+                //! Probleme, check avec console log en haut position bloqué
             }
         }
     }

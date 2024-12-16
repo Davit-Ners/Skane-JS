@@ -8,7 +8,7 @@ const deplacement = [];
 const oldLoc = [];
 const tailleCorps = [];
 let left, right, up, down;
-let vitesse = 200;
+let vitesse = 100;
 let gameOver = false;
 const passages = [];
 
@@ -95,7 +95,7 @@ function placerPiece() {
 
 // Fonction pour pas que snake sorte du jeu
 function checkIfOut(emplacement0, emplacement1) {
-    return (emplacement0 >= 0 && emplacement0 < 20 && emplacement1 >= 0 && emplacement1 < 20);
+    return (emplacement0 >= 0 && emplacement0 < 20 && emplacement1 >= 0 && emplacement1 < 20 && !(tt[emplacement0][emplacement1].hasSnakeBody));
 }
 
 function resetPassage(x, transformation) {
@@ -113,6 +113,7 @@ function resetPassageTemp(x, transformation) {
     for (const ligne of tt) {
         for (const block of ligne) {
             if (block.passageTemp == x) {
+                (console.log("OK"));
                 block.passageTemp = transformation;
                 block.hasSnakeBody = false;
             }
@@ -186,11 +187,13 @@ function mouvDeplacement(i0, i1) {
                 resetPassage(i, null);
                 const pos = trouverPassageTemp(i);
                 const nextPos = trouverPassage(i-1);
+                resetPassageTemp(i, null);
                 tt[pos[0]][pos[1]].hasSnakeBody = true;
                 tt[pos[0]][pos[1]].passage = i;
                 tt[nextPos[0]][nextPos[1]].passageTemp = i;
+                console.log(tt[nextPos[0]][nextPos[1]].passageTemp);
                 console.log(pos[0], pos[1]);
-                //! Probleme, check avec console log en haut position bloqué
+                console.log("NEXT", nextPos[0], nextPos[1]);
             }
         }
     }

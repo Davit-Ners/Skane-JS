@@ -60,3 +60,11 @@
     left: 37%;
     display: none;
 }
+
+#lancer {
+    position: absolute;
+    top: 10em;
+    width: 500px;
+    border: 2px solid black;
+    padding: 5px;
+}

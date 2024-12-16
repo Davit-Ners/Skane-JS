@@ -208,6 +208,7 @@ function mouvDeplacement(i0, i1) {
 }
 
 function whichKey(event) {
+    document.querySelector('#lancer').style.display = 'none';
     if (event.keyCode === 37 && deplacement[0] != 'right' && deplacement[0] != 'left') {
         deplacement[0] = 'left';
         ClearAllIntervals();
